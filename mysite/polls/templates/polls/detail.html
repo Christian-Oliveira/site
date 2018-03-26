@@ -11,9 +11,3 @@
 	{% endfor %}
 	<input type="submit" value="Vote"/>
 </form>
-
-<ul>
-	{% for choice in question.choice_set.all %}
-		<li>{{ choice.choice_text }}</li>
-	{% endfor %}
-</ul>
