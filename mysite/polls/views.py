@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.views import generic
 from .models import Question, Choice
 
-#Função que retorna a pagina inicial do site
+#Classe que retorna a pagina inicial do site
 class IndexView(generic.ListView):
 	template_name = 'polls/index.html'
 	context_object_name = 'latest_question_list'
@@ -13,12 +13,12 @@ class IndexView(generic.ListView):
 		"""Retorna as 5 ultimas perguntas publicadas."""
 		return Question.objects.order_by('-pub_date')[:5]
 
-#Função que retorna a pagina de detalhes de cada questão passa pelo id
+#Classe que retorna a pagina de detalhes de cada questão passa pelo id
 class DetailView(generic.DetailView):
 	model = Question
 	template_name='polls/detail.html'
 
-#Função que retorna resultados de cada questão
+#Classe que retorna resultados de cada questão
 class ResultsView(generic.DetailView):
 	model = Question
 	template_name='polls/results.html'
